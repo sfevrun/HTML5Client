@@ -1,0 +1,110 @@
+﻿'use strict';
+/// <reference path="C:\Users\FEVRUN\Documents\Visual Studio 2013\Projects\SGS\SGS\Views/Parametre/Rayon.cshtml" />
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'angularModalService','ngSanitize']);
+app.controller('catCtrl', catCtrl);
+app.controller('catPopCtrl', catPopCtrl);
+
+app.controller('persCtrl', persCtrl);
+app.controller('persPopCtrl', persPopCtrl);
+app.factory('rhService', rhService);
+var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $urlRouterProvider) {
+
+    //$locationProvider.hashPrefix('!').html5Mode(
+    //    {
+    //        enabled: true,
+    //        requireBase: false
+    //    });
+      
+    $stateProvider
+              .state('~/', {
+              url: '',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/categorieListe.html',
+                      controller: catCtrl,
+              
+                  }
+              }
+              }).state('livreListe', {
+              url: '/livreListe',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/livreListe.html',
+                      controller: catCtrl,
+              
+                  }
+              }
+              })
+        
+   
+   .state('personne', {
+              url: '/personne',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/personneListe.html',
+                      controller: persCtrl,
+              
+                  }
+              }
+              })
+
+    }
+
+
+  //  $stateProvider.errorOnUnhandledRejections(false);
+
+configFunction.$inject = ['$stateProvider', '$httpProvider', '$locationProvider', '$urlRouterProvider'];
+app.config(configFunction).run(function ($rootScope) {
+    $rootScope.$on('$stateChangeStart', function () {
+        $rootScope.stateLoading = true;
+    })
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+        $rootScope.stateLoading = false;
+    })
+});
+
+
+app.directive('ngConfirmClick', [
+        function () {
+            return {
+                link: function (scope, element, attr) {
+                    var msg = attr.ngConfirmClick || "Are you sure?";
+                    var clickAction = attr.confirmedClick;
+                    element.bind('click', function (event) {
+                        if (window.confirm(msg)) {
+                            scope.$eval(clickAction)
+                        }
+                    });
+                }
+            };
+        }])
+
+//n my project, root state is login state if login successfully then it goes to admin.dashboard state, where admin state was abstract state.
+
+//i user $state.transitionTo instead of $state.go when go to admin.dashboard state.
+
+//also add on app.config section.
+
+//$qProvider.errorOnUnhandledRejections(false);
+
+//that's work for me.
+
+
+    //app.directive('fileModel', ['$parse', function ($parse) {
+    //    return {
+    //        restrict: 'A',
+    //        link: function (scope, element, attrs) {
+    //            var model = $parse(attrs.fileModel);
+    //            var modelSetter = model.assign;
+
+    //            element.bind('change', function () {
+    //                scope.$apply(function () {
+    //                    modelSetter(scope, element[0].files[0]);
+    //                });
+    //            });
+    //        }
+    //    };
+    //}]);
+
+
