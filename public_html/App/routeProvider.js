@@ -1,11 +1,12 @@
-﻿'use strict';
+'use strict';
 /// <reference path="C:\Users\FEVRUN\Documents\Visual Studio 2013\Projects\SGS\SGS\Views/Parametre/Rayon.cshtml" />
 var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'angularModalService','ngSanitize']);
 app.controller('catCtrl', catCtrl);
 app.controller('catPopCtrl', catPopCtrl);
-
 app.controller('persCtrl', persCtrl);
 app.controller('persPopCtrl', persPopCtrl);
+app.controller('livreCtrl', livreCtrl);
+app.controller('livrePopCtrl', livrePopCtrl);
 app.factory('rhService', rhService);
 var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $urlRouterProvider) {
 
@@ -30,7 +31,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
               views: {
                   "containerOne": {
                       templateUrl: 'views/livreListe.html',
-                      controller: catCtrl,
+                      controller: livreCtrl,
               
                   }
               }

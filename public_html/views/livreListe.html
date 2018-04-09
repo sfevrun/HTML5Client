@@ -95,7 +95,7 @@
 
 
     <div class="col-md-1">
-        <button class="btn btn-info pull-right" ng-click="showCategorie()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
+        <button class="btn btn-info pull-right" ng-click="showLivre()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
     </div>
 
 
@@ -123,6 +123,26 @@
                 <th>
                     DESCRIPTION
                 </th>
+ <th>
+                    NOM
+                </th>
+                <th>
+                    DESCRIPTION
+                </th>
+
+                 <th>
+                    NOM
+                </th>
+                <th>
+                    DESCRIPTION
+                </th>
+
+                 <th>
+                    NOM
+                </th>
+                <th>
+                    DESCRIPTION
+                </th>
 
                
 
@@ -131,20 +151,49 @@
         </thead>
 
         <tbody>
-            <tr ng-repeat="p in categories">
+            <tr ng-repeat="p in livres">
 
                 <td>
-                    {{p.nom}}
-                </td>
-               
-                <td>
-                    {{p.description}}
+                    {{p.id}}
 
                 </td>
+     <td>
+                    {{p.titre}}
 
+                </td>
+    <td>
+                    {{p.resume}}
+
+                </td>
+  <td>
+                    {{p.isbn}}
+
+                </td>
+   <td>
+                    {{p.categorie}}
+
+                </td>
+   <td>
+                    {{p.quantite}}
+
+                </td>
+     <td>
+                    {{p.photo}}
+
+                </td>
+    <td>
+                    {{p.publishedDate}}
+
+                </td>
+   <td>
+                    {{p.ecrit_par}}
+
+                </td> 
+                
+              
                 
                 <td>
-                    <button name="Edit" ng-click="showCategorie(p.id)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
+                    <button name="Edit" ng-click="showLivre(p.id)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
                     <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Etes-vous sure de vouloir detruire cet enregistrement?')"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>

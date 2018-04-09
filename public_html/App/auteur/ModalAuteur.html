@@ -9,7 +9,7 @@
             <form id="my_form" name='form1' class="form-horizontal" role="form" novalidate>
                 <div class="modal-body">
                     <p>
-  Creer ou editer un livre
+        Creer ou editer une categorie
                     </p>
                     <hr />
                     <div class="container-fluid">
@@ -43,7 +43,7 @@
                                     <div class="col-sm-9" style="margin-bottom:5px;">
                                         <select class="form-control" 
                                                 ng-model="livre.categorie"
-                                             ng-options="s as s.nom for s in categories">
+                                             ng-options="s.id as s.nom for s in categories">
                                         </select>
                                     </div>
 

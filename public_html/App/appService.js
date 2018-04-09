@@ -28,7 +28,18 @@
        return $http.post("http://127.0.0.1:8080/bibliotheque_ntdp/webresources/personne",JSON.stringify(newPersonne));
    };
 
+/////////////////////////////////////////////////////////////////////////////////
+ var getAllLivre = function () {
+        return $http.get("http://127.0.0.1:8080/bibliotheque_ntdp/webresources/livre");
+        };
 
+       var getLivre= function (id) {
+        return $http.get("http://127.0.0.1:8080/bibliotheque_ntdp/webresources/livre/"+id);
+        };
+
+   var postLivre = function (newPersonne) {
+       return $http.post("http://127.0.0.1:8080/bibliotheque_ntdp/webresources/livre",JSON.stringify(newPersonne));
+   };
      ////////////////////////////////////////////////////////////////////
      return {
          getAllCategorie:getAllCategorie,
@@ -36,8 +47,11 @@
          postCategorie:postCategorie,
          getAllPersonne:getAllPersonne,
          getPersonne:getPersonne,
-         postPersonne:postPersonne
-         
+         postPersonne:postPersonne,
+         /////////////
+          getAllLivre:getAllLivre,
+         getLivre:getLivre,
+         postLivre:postLivre
         
        };
 }
