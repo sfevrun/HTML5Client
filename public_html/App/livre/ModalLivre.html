@@ -69,10 +69,11 @@
                                     <input type="text" class="form-control" ng-model="livre.publishedDate" name="nom" value="" ng-required="true" />
                                 </div>
                                   <div class="row">
-                                <label class="col-sm-3 control-label">ecrit_par</label>
+                               
+                                <label class="col-sm-3 control-label">Ecrit par</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
                                     <select class="form-control" ng-model="livre.ecrit_par" 
-                                      ng-option="">
+                                      ng-options="s as s.nom+' '+s.prenom for s in auteurs">
                                     </select>
                                 </div>
                                 

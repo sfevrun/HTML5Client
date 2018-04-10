@@ -18,7 +18,13 @@ rhService.getAllCategorie().then(
                    $scope.CRUDresult = "Data updated with success"
                });
 
-
+rhService.getAllAuteur().then(
+  
+               function (results) {
+      
+                   $scope.auteurs = results.data;
+                   $scope.CRUDresult = "Data updated with success"
+               });
       $scope.showLivre= function (livreID) {
         ModalService.showModal({
             templateUrl: "App/livre/ModalLivre.html",
@@ -84,7 +90,13 @@ rhService.getAllCategorie().then(
                    $scope.categories = results.data;
                    $scope.CRUDresult = "Data updated with success"
                });
-
+rhService.getAllAuteur().then(
+  
+               function (results) {
+      
+                   $scope.auteurs = results.data;
+                   $scope.CRUDresult = "Data updated with success"
+               });
         $scope.close = function () {
             rhService.postLivre($scope.livre).then(
                    function (results) {

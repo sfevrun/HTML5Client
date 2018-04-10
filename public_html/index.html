@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  style="height: 100%">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,6 +22,11 @@
     <script src="App/livre/livreController.js" type="text/javascript"></script>
     <script src="App/personne/persController.js" type="text/javascript"></script>
     <script src="App/categorie/conController.js" type="text/javascript"></script>
+    
+     <script src="App/pret/pretController.js" type="text/javascript"></script>
+    <script src="App/user/userController.js" type="text/javascript"></script>
+    <script src="App/auteur/auteurController.js" type="text/javascript"></script>
+    
     <script src="App/appService.js" type="text/javascript"></script>
     <script src="App/routeProvider.js" type="text/javascript"></script>
   
@@ -31,7 +36,7 @@
     <title>Title</title>
   
 </head>
-<body  ng-app="app">
+<body  ng-app="app" style="height: 100%">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -48,8 +53,8 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid body-content">
-        <div class="row" style="background: #C1D4E6;">
+    <div class="container-fluid body-content"  style="background: #C1D4E6;height: 93%">
+       
         <div class="col-md-2" style="padding-left: 0px;padding-right: 0px;"> 
             
  <div class="j" style="padding-right: 0px; padding-top: 60px; background: #C1D4E6">
@@ -70,7 +75,15 @@
                                      <li>
                                            <a href="#livreListe" ><span class="glyphicon glyphicon-comment"></span> Livlre</a>
                                     </li>
-                                   
+                                    <li>
+                                            <a href="#auteurs" ><span class="glyphicon glyphicon-file"></span>Auteur</a>
+                                        </li>
+                                     <li>
+                                           <a href="#users" ><span class="glyphicon glyphicon-comment"></span> Utilisateur</a>
+                                    </li>
+                                       <li>
+                                           <a href="#pret" ><span class="glyphicon glyphicon-comment"></span> Pret</a>
+                                    </li>
                                   
                                     <li class="init-arrow-down">
                                         <a href="#personne"><span class="glyphicon glyphicon-phone"></span> <span class="gw-menu-text">Personne</span> <b class="gw-arrow icon-arrow-up8"></b> </a>
@@ -85,16 +98,17 @@
                         </div>
                     </div>
         </div>
-          <div class="col-md-10" style="background: #fff;">
-            <div ng-hide="stateLoading" ui-view="containerOne" style="min-height:100%"></div>
-    
+          <div class="col-md-10" style="background: #fff;height: 100%">
+            <div ng-hide="stateLoading" ui-view="containerOne" style="min-height:90%"></div>
+        </div>
          
         </div>
-        <hr />
-        <footer>
-            <p>&copy; Zephirin</p>
-        </footer>
-    </div>
+      
+        <footer style="background: #eee;border-top:1px solid #ccc;padding:20px">
+       
+            <p>&copy; Zephirin and SAUL</p>
+  </footer>
+
 
  
 </body>

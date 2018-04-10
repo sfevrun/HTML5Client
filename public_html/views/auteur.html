@@ -90,12 +90,12 @@
 
     </div>
     <div class="col-md-7">
-        <h2>Liste des livres</h2>
+        <h2>Liste des auteurs</h2>
     </div>
 
 
     <div class="col-md-1">
-        <button class="btn btn-info pull-right" ng-click="showLivre()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
+        <button class="btn btn-info pull-right" ng-click="showAuteur()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
     </div>
 
 
@@ -117,81 +117,71 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
+            
+
                 <th>
-                    Titre
+                    NOM
                 </th>
                 <th>
-                    ISBN
+                    PERNOM
+                </th>
+<th>
+                    EMAIL
+                </th>
+               <th>
+                    SEXE
+                <th>
+                    A propos
+                </th>
+                <th>
+                    Nationalite
                 </th>
  <th>
-                    RESUME
+                    Type
                 </th>
-                <th>
-                    Categorie
-                </th>
+                
 
-                 <th>
-                    Quantite
-                </th>
-                <th>
-                    PHOTO
-                </th>
-
-                 <th>
-                    DATE PUBICATION
-                </th>
-                <th>
-                    AUTEUR
-                </th>
-
-               
 
             </tr>
 
         </thead>
 
         <tbody>
-            <tr ng-repeat="p in livres">
+            <tr ng-repeat="p in auteurs">
 
-             
-     <td>
-                    {{p.titre}}
 
-                </td> 
+                <td>
+                    {{p.nom}}
+                </td>
                
-  <td>
-                    {{p.isbn}}
+                <td>
+                    {{p.prenom}}
 
                 </td>
-    <td>
-                    {{p.resume}}
-
-              
-   <td>
-                    {{p.categorie.nom}}
+ <td>
+                    {{p.email}}
 
                 </td>
-   <td>
-                    {{p.quantite}}
+ <td>
+                    {{p.sexe}}
+
+                </td>
+                <td>
+                    {{p.aProposDe}}
 
                 </td>
      <td>
-                    {{p.photo}}
+                    {{p.nationalite}}
 
                 </td>
-    <td>
-                    {{p.publishedDate}}
+    
+               <td>
+                    {{p.type}}
 
                 </td>
-   <td>
-                    {{p.ecrit_par.aProposDe}}
-
-                </td> 
-                
-              
                 
                 <td>
-                    <button name="Edit" ng-click="showLivre(p.id)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
+                    <button name="Edit" ng-click="showAuteur(p.id)" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></button>
                     <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Etes-vous sure de vouloir detruire cet enregistrement?')"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>

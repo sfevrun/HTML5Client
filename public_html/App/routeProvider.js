@@ -7,6 +7,12 @@ app.controller('persCtrl', persCtrl);
 app.controller('persPopCtrl', persPopCtrl);
 app.controller('livreCtrl', livreCtrl);
 app.controller('livrePopCtrl', livrePopCtrl);
+app.controller('auteurCtrl', auteurCtrl);
+app.controller('auteurPopCtrl', auteurPopCtrl);
+app.controller('userCtrl', userCtrl);
+app.controller('userPopCtrl', userPopCtrl);
+app.controller('pretCtrl', pretCtrl);
+app.controller('pretPopCtrl', pretPopCtrl);
 app.factory('rhService', rhService);
 var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $urlRouterProvider) {
 
@@ -35,9 +41,36 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
               
                   }
               }
+              }).state('auteurs', {
+              url: '/auteurs',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/auteur.html',
+                      controller: auteurCtrl,
+              
+                  }
+              }
               })
-        
-   
+           .state('pret', {
+              url: '/pret',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/pret.html',
+                      controller: pretCtrl,
+              
+                  }
+              }
+              })
+   .state('users', {
+              url: '/users',
+              views: {
+                  "containerOne": {
+                      templateUrl: 'views/user.html',
+                      controller: userCtrl,
+              
+                  }
+              }
+              })
    .state('personne', {
               url: '/personne',
               views: {

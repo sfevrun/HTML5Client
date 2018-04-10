@@ -1,32 +1,23 @@
-var livreCtrl =  function ($scope, $element, ModalService, rhService, filterFilter) {
+var auteurCtrl =  function ($scope, $element, ModalService, rhService, filterFilter) {
 
  
-$scope.livres=[];
-rhService.getAllLivre().then(
+$scope.auteurs=[];
+rhService.getAllAuteur().then(
   
                function (results) {
       
-                   $scope.livres = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
-$scope.categories=[];
-rhService.getAllCategorie().then(
-  
-               function (results) {
-              //     alert($scope.vehicule);
-                   $scope.categories = results.data;
+                   $scope.auteurs = results.data;
                    $scope.CRUDresult = "Data updated with success"
                });
 
-
-      $scope.showLivre= function (livreID) {
+      $scope.showAuteur= function (auteurID) {
         ModalService.showModal({
-            templateUrl: "App/livre/ModalLivre.html",
-            controller: "livrePopCtrl",
+            templateUrl: "App/auteur/ModalAuteur.html",
+            controller: "auteurPopCtrl",
             windowClass: 'app-modal-window',
             inputs: {
-                title: (livreID == null) ? "Ajouter Livre" : " Editer livre: " + livreID,
-                livreID: livreID
+                title: (auteurID == null) ? "Ajouter Auteur" : " Editer auteur: " + auteurID,
+                auteurID: auteurID
             }
         }).then(function (modal) {
             modal.element.modal(); // open the modal form
@@ -52,23 +43,23 @@ rhService.getAllCategorie().then(
       }
       $scope.numberPage = '10';
   } 
-livreCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFilter'];
+auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFilter'];
 
 
 
 
-  var  livrePopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log, filterFilter ,title, close, livreID) {
-      $scope.livre = {};
-    
-      $scope.id = livreID;
+  var  auteurPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log, filterFilter ,title, close, auteurID) {
+      $scope.auteur = {};
+   $scope.typeauteurs=[{value:'PRINCIPAL'},{value:'COAUTEUR'}];
+      $scope.id = auteurID;
       $scope.Updating = true;
       $scope.CRUDresult = "";
       $scope.title = title;
   if ($scope.id) {
-         rhService.getLivre($scope.id).then(
+         rhService.getAuteur($scope.id).then(
              function (results) {
                  // on success
-                 $scope.livre = results.data;
+                 $scope.auteur = results.data;
              },
               function (results) {
                   $scope.CRUDresult = "Data failed to load with status : " + results.data;
@@ -76,17 +67,10 @@ livreCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFi
               }
              );
     }
-    $scope.categories=[];
-rhService.getAllCategorie().then(
-  
-               function (results) {
-              //     alert($scope.vehicule);
-                   $scope.categories = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+
 
         $scope.close = function () {
-            rhService.postLivre($scope.livre).then(
+            rhService.postAuteur($scope.auteur).then(
                    function (results) {
                        // on success
                        $scope.CRUDresult = results.data;
@@ -109,4 +93,4 @@ rhService.getAllCategorie().then(
        //////////////////////////////////
         
     } 
-  livrePopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log', 'filterFilter', 'title', 'close', 'livreID'];
+  auteurPopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log', 'filterFilter', 'title', 'close', 'auteurID'];

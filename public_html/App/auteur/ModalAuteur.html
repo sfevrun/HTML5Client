@@ -9,79 +9,100 @@
             <form id="my_form" name='form1' class="form-horizontal" role="form" novalidate>
                 <div class="modal-body">
                     <p>
-        Creer ou editer une categorie
-                    </p>
+                      Creer ou editer une categorie
+                        </p>
                     <hr />
                     <div class="container-fluid">
-                        <div class="col-md-12">
+                           <div class="col-md-12">
+                   
                       
                             <div class="row">
-                                <label class="col-sm-3 control-label">titre</label>
+                                <label class="col-sm-3 control-label">Nom</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="livre.titre" name="nom" value="" ng-required="true" />
+                                    <input type="text" class="form-control" ng-model="auteur.nom" name="nom" value="" ng-required="true" />
                                 </div>
 
                             </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label">resume</label>
+                                    <label class="col-sm-3 control-label">Prenom</label>
                                     <div class="col-sm-9" style="margin-bottom:5px;">
-                                        <input type="text" class="form-control" ng-model="livre.resume" name="nom" value="" ng-required="true" />
+                                        <input type="text" class="form-control" ng-model="auteur.prenom" name="nom" value="" ng-required="true" />
                                     </div>
 
                                 </div>
                            
                              <div class="row">
-                                <label class="col-sm-3 control-label">isbn</label>
+                                <label class="col-sm-3 control-label">Sexe</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="livre.isbn" 
-                                           name="nom" value="" ng-required="true" />
+                                    <input type="text" class="form-control" ng-model="auteur.sexe" name="nom" value="" ng-required="true" />
                                 </div>
 
                             </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label">categorie</label>
+                                    <label class="col-sm-3 control-label">Photo</label>
                                     <div class="col-sm-9" style="margin-bottom:5px;">
-                                        <select class="form-control" 
-                                                ng-model="livre.categorie"
-                                             ng-options="s.id as s.nom for s in categories">
-                                        </select>
+                                        <input type="text" class="form-control" ng-model="auteur.photo" name="nom" value="" ng-required="true" />
                                     </div>
 
                                 </div>
                              <div class="row">
-                                <label class="col-sm-3 control-label">quantite</label>
+                                <label class="col-sm-3 control-label">Email</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="livre.quantite" name="nom" value="" ng-required="true" />
+                                    <input type="text" class="form-control" ng-model="auteur.email" name="nom" value="" ng-required="true" />
                                 </div>
 
                             </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label">photo</label>
+                               
+                                
+                           
+                  
+                       <div class="row">
+                                    <label class="col-sm-3 control-label">Date Naissance</label>
                                     <div class="col-sm-9" style="margin-bottom:5px;">
-                                        <input type="text" class="form-control" ng-model="livre.photo" name="nom" value="" ng-required="true" />
+                                        <input type="text" class="form-control" ng-model="auteur.dateDenaissance" name="nom" value="" ng-required="true" />
                                     </div>
 
                                 </div>
                             
                               <div class="row">
-                                <label class="col-sm-3 control-label">publishedDate</label>
+                                <label class="col-sm-3 control-label">Nationalite</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="livre.publishedDate" name="nom" value="" ng-required="true" />
+                                    <input type="text" class="form-control" ng-model="auteur.nationalite" name="nom" value="" ng-required="true" />
                                 </div>
-                                  <div class="row">
-                                <label class="col-sm-3 control-label">ecrit_par</label>
+
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 control-label">A propos</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <select class="form-control" ng-model="livre.ecrit_par" 
-                                      ng-option="">
-                                    </select>
+                                    <input type="text" class="form-control" ng-model="auteur.aProposDe" name="nom" value="" ng-required="true" />
                                 </div>
-                                
+
+                            </div>
+                           
+                           
+                             <div class="row">
+                                <label class="col-sm-3 control-label">type</label>
+                                <div class="col-sm-9" style="margin-bottom:5px;">
+                                    <select class="form-control" 
+                                                ng-model="auteur.type"
+                                             ng-options="s as s.value for s in typeauteurs">
+                                        </select> 
+                                    <!--
+                                    
+                                    <input type="text" class="form-control" ng-model="auteur.type" 
+                                           name="nom" value="" ng-required="true" />-->
+                                </div>
+
+                       
+  
+                               
                                 
                                 
 
                             </div>
                                 
-                           
+                          
+                           </div>
                         </div>
                         
                         
