@@ -14,7 +14,7 @@
                     <hr />
                     <div class="container-fluid">
                         <div class="col-md-12">
-                      
+                 
                             <div class="row">
                                 <label class="col-sm-3 control-label">titre</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
@@ -43,7 +43,7 @@
                                     <div class="col-sm-9" style="margin-bottom:5px;">
                                         <select class="form-control" 
                                                 ng-model="livre.categorie"
-                                             ng-options="s as s.nom for s in categories">
+                                             ng-options="s as s.nom for s in categories track by s.id">
                                         </select>
                                     </div>
 
@@ -65,15 +65,20 @@
                             
                               <div class="row">
                                 <label class="col-sm-3 control-label">publishedDate</label>
-                                <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="livre.publishedDate" name="nom" value="" ng-required="true" />
-                                </div>
+                                      <div class="col-sm-7" style="margin-bottom:5px;">
+                                    <datetimepicker id="date" name="date" ng-model="livre.publishedDate" ng-required="false"
+                                                    show-meridian="showMeridian" date-format="dd-MMM-yyyy">
+                                    </datetimepicker>
+                                </div><div class="2"></div>
+                                
+                              </div>
                                   <div class="row">
                                
                                 <label class="col-sm-3 control-label">Ecrit par</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
+                                  
                                     <select class="form-control" ng-model="livre.ecrit_par" 
-                                      ng-options="s as s.nom+' '+s.prenom for s in auteurs">
+                                      ng-options="s as s.nom+' '+s.prenom for s in auteurs  track by s.id">
                                     </select>
                                 </div>
                                 

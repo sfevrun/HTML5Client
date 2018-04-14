@@ -17,7 +17,7 @@ rhService.getAllPret().then(
             controller: "pretPopCtrl",
             windowClass: 'app-modal-window',
             inputs: {
-                title: (pretID == null) ? "Ajouter categorie" : " Edit categorie: " + pretID,
+                title: (pretID == null) ? "Ajouter pret" : " Edit pret: " + pretID,
                 pretID: pretID
             }
         }).then(function (modal) {
@@ -25,13 +25,18 @@ rhService.getAllPret().then(
             modal.close.then(
               function (result) {
                   $scope.complexResult = modal.scope.CRUDresult;
-                  if ($scope.complexResult.success) {
+                  if ($scope.complexResult) {
+                        $scope.prets.forEach(function(v) {
+                            if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
+                             var index = $scope.prets.indexOf(v);
+                               $scope.prets.splice(index, 1); 
+                           }
+                         });
+                      $scope.prets.splice(0, 0, $scope.complexResult);//($scope.complexResult);
+               
+            
                     
-                      rhService.getAllCategorie().then(
-               function (results) {
-                   $scope.categories = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+             
          }
               });
         });

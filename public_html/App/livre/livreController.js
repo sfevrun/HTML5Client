@@ -39,13 +39,15 @@ rhService.getAllAuteur().then(
             modal.close.then(
               function (result) {
                   $scope.complexResult = modal.scope.CRUDresult;
-                  if ($scope.complexResult.success) {
-                    
-                      rhService.getAllLivre().then(
-               function (results) {
-                   $scope.personnes = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+                  if ($scope.complexResult) {
+                        $scope.livres.forEach(function(v) {
+                            if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
+                             var index = $scope.livres.indexOf(v);
+                               $scope.livres.splice(index, 1); 
+                           }
+                         });
+                           $scope.livres.splice(0, 0, $scope.complexResult);//($scope.complexResult);
+           
          }
               });
         });
@@ -97,7 +99,22 @@ rhService.getAllAuteur().then(
                    $scope.auteurs = results.data;
                    $scope.CRUDresult = "Data updated with success"
                });
+     $scope._type={};
         $scope.close = function () {
+             $scope._type.value= $scope.livre.ecrit_par.type;
+            $scope.livre.ecrit_par.type= $scope._type;
+             if ($scope.id) {
+                   rhService.putLivre($scope.id,$scope.livre).then(
+                   function (results) {
+                        $scope.CRUDresult = results.data;
+                    },
+                   function (results) {
+                      $scope.CRUDresult = results.data;
+                   });
+          
+             }else{
+            
+            
             rhService.postLivre($scope.livre).then(
                    function (results) {
                        // on success
@@ -107,6 +124,7 @@ rhService.getAllAuteur().then(
                     //   alert(results.data);
                        $scope.CRUDresult = results.data;
                    });
+               }
                                         
           close({
              dataState: $scope.CRUDresult

@@ -26,12 +26,14 @@ rhService.getAllUser().then(
               function (result) {
                   $scope.complexResult = modal.scope.CRUDresult;
                   if ($scope.complexResult.success) {
-                    
-                      rhService.getAllCategorie().then(
-               function (results) {
-                   $scope.categories = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+                        $scope.users.forEach(function(v) {
+                            if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
+                             var index = $scope.users.indexOf(v);
+                               $scope.users.splice(index, 1); 
+                           }
+                         });
+                      $scope.users.splice(0, 0, $scope.complexResult);//($scope.complexResult);
+               
          }
               });
         });

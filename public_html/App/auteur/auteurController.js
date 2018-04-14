@@ -24,13 +24,16 @@ rhService.getAllAuteur().then(
             modal.close.then(
               function (result) {
                   $scope.complexResult = modal.scope.CRUDresult;
-                  if ($scope.complexResult.success) {
-                    
-                      rhService.getAllLivre().then(
-               function (results) {
-                   $scope.personnes = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+                  if ($scope.complexResult) {
+                        $scope.auteurs.forEach(function(v) {
+                            if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
+                             var index = $scope.auteurs.indexOf(v);
+                               $scope.auteurs.splice(index, 1); 
+                           }
+                         });
+                        $scope.auteurs.splice(0, 0, $scope.complexResult);//($scope.complexResult);
+               
+            
          }
               });
         });
@@ -50,7 +53,8 @@ auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterF
 
   var  auteurPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log, filterFilter ,title, close, auteurID) {
       $scope.auteur = {};
-   $scope.typeauteurs=[{value:'PRINCIPAL'},{value:'COAUTEUR'}];
+   // $scope.typeauteurs=[{value:'PRINCIPAL'},{value:'COAUTEUR'}];
+     $scope.typeauteurs=['PRINCIPAL','COAUTEUR'];
       $scope.id = auteurID;
       $scope.Updating = true;
       $scope.CRUDresult = "";
@@ -68,8 +72,22 @@ auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterF
              );
     }
 
-
+    $scope._type={};
         $scope.close = function () {
+            $scope._type.value= $scope.auteur.type;
+            $scope.auteur.type= $scope._type;
+             if ($scope.id) {
+                   rhService.putAuteur($scope.id,$scope.auteur).then(
+                   function (results) {
+                        $scope.CRUDresult = results.data;
+                    },
+                   function (results) {
+                      $scope.CRUDresult = results.data;
+                   });
+          
+             }else{
+            
+            
             rhService.postAuteur($scope.auteur).then(
                    function (results) {
                        // on success
@@ -79,6 +97,7 @@ auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterF
                     //   alert(results.data);
                        $scope.CRUDresult = results.data;
                    });
+               }
                                         
           close({
              dataState: $scope.CRUDresult

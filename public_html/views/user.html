@@ -89,28 +89,20 @@
     <div class="col-md-12 bg" style="height: 60px;">
 
     </div>
+<div class="row">
     <div class="col-md-7">
         <h2>Liste des utilisateurs</h2>
     </div>
 
 
-    <div class="col-md-1">
+    <div class="col-md-1 pull-right" style="margin-top:30px">
         <button class="btn btn-info pull-right" ng-click="showUser()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
     </div>
-
+</div>
 
     <hr />
 
-<div class="col-md-12">
-    <div class="col-md-2 pull-right">
-        <select class="form-control" ng-model="numberPage">
-            <option value="10" ng-selected>10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-        </select>
-    </div>
-</div>
+
 <div id="printThis" style="background:#fff">
 
 
@@ -169,6 +161,17 @@
                                  direction-links="true"
                                  boundary-links="true">
         </dir-pagination-controls>
+        
+    
+    <div class="col-md-2 pull-right">
+        <select class="form-control" ng-model="numberPage">
+            <option value="10" ng-selected>10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+
     </div>
    
 

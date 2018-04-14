@@ -1,6 +1,9 @@
-﻿var catCtrl =  function ($scope, $element, ModalService, rhService, filterFilter) {
-
- 
+var catCtrl =  function ($scope, $element, ModalService, rhService, filterFilter) {
+$scope.signout = function() {
+        rhService.authenticate(null);
+        $state.go('login');
+      };
+ //alert('Categorie');
 $scope.categories=[];
 rhService.getAllCategorie().then(
   
@@ -24,14 +27,19 @@ rhService.getAllCategorie().then(
             modal.element.modal(); // open the modal form
             modal.close.then(
               function (result) {
+              //    alert(JSON.stringify(result));
                   $scope.complexResult = modal.scope.CRUDresult;
-                  if ($scope.complexResult.success) {
+                  if ($scope.complexResult) {
                     
-                      rhService.getAllCategorie().then(
-               function (results) {
-                   $scope.categories = results.data;
-                   $scope.CRUDresult = "Data updated with success"
-               });
+                    $scope.categories.forEach(function(v) {
+                            if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
+                             var index = $scope.categories.indexOf(v);
+                               $scope.categories.splice(index, 1); 
+                           }
+                         });
+                    
+                   $scope.categories.splice(0, 0, $scope.complexResult);//($scope.complexResult);
+               
          }
               });
         });
@@ -53,7 +61,7 @@ catCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFilt
       $scope.categorie = {};
     
       $scope.id = categorieID;
-      $scope.Updating = true;
+   //   $scope.Updating = true;
       $scope.CRUDresult = "";
       $scope.title = title;
   if ($scope.id) {
@@ -70,15 +78,28 @@ catCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFilt
     }
     
         $scope.close = function () {
+             if ($scope.id) {
+                   rhService.putCategorie($scope.id,$scope.categorie).then(
+                   function (results) {
+                        $scope.CRUDresult = results.data;
+                    },
+                   function (results) {
+                      $scope.CRUDresult = results.data;
+                   });
+          
+             }else{
             rhService.postCategorie($scope.categorie).then(
                    function (results) {
-                       // on success
+                      // on success
+                 
                        $scope.CRUDresult = results.data;
+                     //   alert(JSON.stringify(results.data));
                    },
                    function (results) {
                     //   alert(results.data);
                        $scope.CRUDresult = results.data;
                    });
+               }
                                         
           close({
              dataState: $scope.CRUDresult

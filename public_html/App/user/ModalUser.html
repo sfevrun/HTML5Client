@@ -14,9 +14,69 @@
                     <hr />
                     <div class="container-fluid">
                         <div class="col-md-12">
+                            
+                                     <div class="row">
+                                <label class="col-sm-3 control-label">Nom</label>
+                                <div class="col-sm-9" style="margin-bottom:5px;">
+                                    <input type="text" class="form-control" ng-model="user.nom" name="nom" value="" ng-required="true" />
+                                </div>
+
+                            </div>
+                                <div class="row">
+                                    <label class="col-sm-3 control-label">Prenom</label>
+                                    <div class="col-sm-9" style="margin-bottom:5px;">
+                                        <input type="text" class="form-control" ng-model="user.prenom" name="nom" value="" ng-required="true" />
+                                    </div>
+
+                                </div>
+                           
+                             <div class="row">
+                                <label class="col-sm-3 control-label">Sexe</label>
+                                <div class="col-sm-9" style="margin-bottom:5px;">
+                                    <input type="text" class="form-control" ng-model="user.sexe" name="nom" value="" ng-required="true" />
+                                </div>
+
+                            </div>
+                                <div class="row">
+                                    <label class="col-sm-3 control-label">Photo</label>
+                                    <div class="col-sm-9" style="margin-bottom:5px;">
+                                        <input type="text" class="form-control" ng-model="user.photo" name="nom" value="" ng-required="true" />
+                                    </div>
+
+                                </div>
+                             <div class="row">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9" style="margin-bottom:5px;">
+                                    <input type="text" class="form-control" ng-model="user.email" name="nom" value="" ng-required="true" />
+                                </div>
+
+                            </div>
+                               
+                                
+                           
+                  
+                       <div class="row">
+                                    <label class="col-sm-3 control-label">Date Naissance</label>
+                                    
+                                    <div class="col-sm-7" style="margin-bottom:5px;">
+                                    <datetimepicker id="date" name="date" ng-model="user.dateDenaissance" ng-required="false"
+                                                    show-meridian="showMeridian" date-format="dd-MMM-yyyy">
+                                    </datetimepicker>
+                                </div><div class="2"></div>
+                                
+
+                                </div>
+                            
+                              <div class="row">
+                                <label class="col-sm-3 control-label">Nationalite</label>
+                                <div class="col-sm-9" style="margin-bottom:5px;">
+                                    <input type="text" class="form-control" ng-model="user.nationalite" name="nom" value="" ng-required="true" />
+                                </div>
+
+                            </div>
                       
                             <div class="row">
-                                <label class="col-sm-3 control-label">Nom</label>
+                                <label class="col-sm-3 control-label">Nom utilisateur</label>
                                 <div class="col-sm-9" style="margin-bottom:5px;">
                                     <input type="text" class="form-control" ng-model="user.nomUtilisateur" name="nom" value="" ng-required="true" />
                                 </div>
@@ -25,7 +85,7 @@
                                 <div class="row">
                                     <label class="col-sm-3 control-label">Mot de passe</label>
                                     <div class="col-sm-9" style="margin-bottom:5px;">
-                                        <input type="text" class="form-control" ng-model="user.motDePasse" name="nom" value="" ng-required="true" />
+                                        <input type="password" class="form-control" ng-model="user.motDePasse" name="nom" value="" ng-required="true" />
                                     </div>
 
                                 </div>

@@ -1,0 +1,112 @@
+
+    
+   <style type="text/css">
+    @@media screen {
+        #printSection {
+            display: none;
+        }
+    }
+
+    @@media print {
+        body * {
+            visibility: hidden;
+        }
+        /*.pay{
+        visibility:hidden;
+    }*/
+        table td:last-child {
+            display: none;
+        }
+        /*table th:last-child {display:none}*/
+
+        /*table td:nth-child(2) {
+            display: none;
+        }
+
+        table th:nth-child(2) {
+            display: none;
+        }*/
+
+        #printSection, #printSection * {
+            visibility: visible;
+        }
+
+        #printSection {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            right: 15;
+            top: 0;
+            font-size: 18px;
+        }
+
+        .modifyMe {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+    }
+</style>
+<style type="text/css">
+    .newgrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 500px;
+        background-color: #FCFCFC;
+    }
+
+        /*.header {
+        background-color: #C1D4E6;
+        font-weight: bold;
+        color: #FFF;
+        padding-left: 0px;
+    }*/
+
+        .newgrid th, .newgrid td {
+            border: 1px solid #C0C0C0;
+            padding: 5px;
+        }
+
+    .alt {
+        background-color: #E4E9F5;
+        color: #000;
+    }
+
+    .gridHead a:hover {
+        text-decoration: underline;
+    }
+
+    .description {
+        width: auto;
+    }
+
+    .select {
+        background-color: #389DF5;
+    }
+</style>
+
+
+    <div class="col-md-12 bg" style="height: 60px;">
+
+    </div>
+    <div class="col-md-7">
+        <h2>Liste des auteurs</h2>
+    </div>
+
+
+    <div class="col-md-1">
+        <button class="btn btn-info pull-right" ng-click="showAuteur()" style="margin-top:0px;">Ajouter  <span class='glyphicon glyphicon-plus'></span></button>
+    </div>
+
+
+    <hr />
+
+<alert type="'danger'">
+  <strong>Access Denied</strong>
+  <p>You don't have permission to see this. <a href="" ui-sref="home">Return home.</a></p>
+</alert>
+   
+
+
+
+   

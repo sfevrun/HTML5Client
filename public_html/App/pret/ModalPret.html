@@ -36,9 +36,13 @@
                                 </div>
                             <div class="row">
                                 <label class="col-sm-3 control-label">Date</label>
-                                <div class="col-sm-9" style="margin-bottom:5px;">
-                                    <input type="text" class="form-control" ng-model="pret.debut" name="nom" value="" ng-required="true" />
-                                </div>
+                                          
+                                    <div class="col-sm-7" style="margin-bottom:5px;">
+                                    <datetimepicker id="date" name="date" ng-model="pret.debut" ng-required="false"
+                                                    show-meridian="showMeridian" date-format="dd-MMM-yyyy">
+                                    </datetimepicker>
+                                </div><div class="2"></div>
+                             
 
                             </div>
                                 <div class="row">
