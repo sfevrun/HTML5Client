@@ -1,6 +1,6 @@
 'use strict';
 /// <reference path="C:\Users\FEVRUN\Documents\Visual Studio 2013\Projects\SGS\SGS\Views/Parametre/Rayon.cshtml" />
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'angularModalService','ngSanitize', 'ui.bootstrap.datetimepicker']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'angularModalService','ngSanitize', 'ui.bootstrap.datetimepicker','base64','tc.chartjs']);
 app.controller('catCtrl', catCtrl);
 app.controller('catPopCtrl', catPopCtrl);
 app.controller('persCtrl', persCtrl);
@@ -13,7 +13,7 @@ app.controller('userCtrl', userCtrl);
 app.controller('userPopCtrl', userPopCtrl);
 app.controller('pretCtrl', pretCtrl);
 app.controller('pretPopCtrl', pretPopCtrl);
-
+app.controller('dashCtrl', dashCtrl);
 //app.factory('principal', principal);
 app.factory('authorization', authorization);
 
@@ -28,7 +28,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
     //        requireBase: false
     //    });
       
-   $urlRouterProvider.otherwise('/signin');
+   $urlRouterProvider.otherwise('/');
 
       $stateProvider.state('site', {
         'abstract': true,
@@ -96,6 +96,9 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
    .state('users', {
          parent: 'site',
               url: '/users',
+               data: {
+                   roles: ['User']
+                 },
               views: {
                     'content@':  {
                       templateUrl: 'views/user.html',
@@ -107,6 +110,9 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
    .state('personne', {
          parent: 'site',
               url: '/personne',
+               data: {
+                   roles: ['User']
+                 },
               views: {
                    'content@':  {
                       templateUrl: 'views/personneListe.html',
@@ -136,6 +142,19 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         views: {
           'content@': {
             templateUrl: 'views/denied.html'
+          }
+        }
+      })
+      .state('/', {
+        parent: 'site',
+        url: '/',
+        data: {
+          roles: []
+        },
+        views: {
+          'content@': {
+            templateUrl: 'views/dashboard.html',
+            controller: 'dashCtrl'
           }
         }
       })
@@ -174,7 +193,28 @@ app.config(configFunction).run(['$rootScope', '$state', '$stateParams', 'authori
       });
     }
 */
+app.directive("ngFileSelect", function(rhService, $timeout) {
+    return {
+      scope: {
+        ngModel: '='
+      },
+      link: function($scope, el) {
+        function getFile(file) {
+          rhService.readAsDataUrl(file, $scope)
+            .then(function(result) {
+              $timeout(function() {
+                $scope.ngModel = result;
+              });
+            });
+        }
 
+        el.bind("change", function(e) {
+          var file = (e.srcElement || e.target).files[0];
+          getFile(file);
+        });
+      }
+    };
+  });
 
 
 app.directive('ngConfirmClick', [

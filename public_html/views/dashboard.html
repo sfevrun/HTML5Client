@@ -1,0 +1,184 @@
+
+    
+   <style type="text/css">
+    @@media screen {
+        #printSection {
+            display: none;
+        }
+    }
+
+    @@media print {
+        body * {
+            visibility: hidden;
+        }
+        /*.pay{
+        visibility:hidden;
+    }*/
+        table td:last-child {
+            display: none;
+        }
+        /*table th:last-child {display:none}*/
+
+        /*table td:nth-child(2) {
+            display: none;
+        }
+
+        table th:nth-child(2) {
+            display: none;
+        }*/
+
+        #printSection, #printSection * {
+            visibility: visible;
+        }
+
+        #printSection {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            right: 15;
+            top: 0;
+            font-size: 18px;
+        }
+
+        .modifyMe {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+    }
+</style>
+<style type="text/css">
+    .newgrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 500px;
+        background-color: #FCFCFC;
+    }
+
+        /*.header {
+        background-color: #C1D4E6;
+        font-weight: bold;
+        color: #FFF;
+        padding-left: 0px;
+    }*/
+
+        .newgrid th, .newgrid td {
+            border: 1px solid #C0C0C0;
+            padding: 5px;
+        }
+
+    .alt {
+        background-color: #E4E9F5;
+        color: #000;
+    }
+
+    .gridHead a:hover {
+        text-decoration: underline;
+    }
+
+    .description {
+        width: auto;
+    }
+
+    .select {
+        background-color: #389DF5;
+    }
+</style>
+
+
+    <div class="col-md-12 bg" style="height: 60px;">
+
+    </div>
+<div class="row">
+    <div class="col-md-7">
+       Tableau de bord
+    </div>
+
+  
+</div>
+<hr>
+<div id="printThis" style="background:#fff">
+
+<div class="panel" id="pdfContent">
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="col-md-12 padding-0">
+                  <table width="100%" id="customers" class="table table-striped">
+
+                    <tr>
+
+                        <td width="30%">
+                        
+                            <div class="col-md-12">
+                                <div class="panel box-v1">
+                                    <div class="panel-body text-center">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>Categorie</h3>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <canvas tc-chartjs-pie
+                                                        chart-data="charts"
+                                                        chart-legend="pieChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12">
+
+                                <div class="panel box-v1">
+                                    <div class="panel-body text-center">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            <h3>
+                                                                Pret par mois
+                                                            </h3>
+                                                        </td>
+                                                    
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <canvas tc-chartjs chart-type="bar"
+                                                        chart-data="chartsprets"
+                                                        chart-legend="horizontalBarChart"></canvas>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </td>
+
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    </div>
+
+
+
+
+
+
+
+    
+
+
+   

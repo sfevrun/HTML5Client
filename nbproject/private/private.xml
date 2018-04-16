@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/auteur/ModalAuteur.html</file>
-            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/pret/ModalPret.html</file>
-            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/loginController.js</file>
-            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/appService.js</file>
-            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/livre/ModalLivre.html</file>
+            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/dashControler.js</file>
+            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/views/auteur.html</file>
+            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/views/dashboard.html</file>
+            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/index.html</file>
+            <file>file:/home/saul/NetBeansProjects/webservicesHtml5/HTML5Client/public_html/App/routeProvider.js</file>
         </group>
     </open-files>
 </project-private>

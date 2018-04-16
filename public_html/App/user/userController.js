@@ -25,7 +25,7 @@ rhService.getAllUser().then(
             modal.close.then(
               function (result) {
                   $scope.complexResult = modal.scope.CRUDresult;
-                  if ($scope.complexResult.success) {
+                  if ($scope.complexResult) {
                         $scope.users.forEach(function(v) {
                             if(v.id == $scope.complexResult.id) {//v.reply_content = 'dddddd';
                              var index = $scope.users.indexOf(v);
@@ -51,7 +51,7 @@ userCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFil
 
 
 
-  var  userPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log, filterFilter ,title, close, userID) {
+  var  userPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log,$base64, filterFilter ,title, close, userID) {
       $scope.user = {};
     
       $scope.id = userID;
@@ -70,8 +70,10 @@ userCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFil
               }
              );
     }
-    
+   
         $scope.close = function () {
+       
+         $scope.user.photo=$scope.imageSrc;
             rhService.postUser($scope.user).then(
                    function (results) {
                        // on success
@@ -91,8 +93,18 @@ userCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterFil
      //   return (window.location.reload());
          };
 
-        
+          $scope.imageSrc = "";
+    
+    $scope.$on("fileProgress", function(e, progress) {
+      $scope.progress = progress.loaded / progress.total;
+    });
        //////////////////////////////////
         
     } 
-  userPopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log', 'filterFilter', 'title', 'close', 'userID'];
+  userPopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log', '$base64','filterFilter', 'title', 'close', 'userID'];
+
+
+
+
+  
+

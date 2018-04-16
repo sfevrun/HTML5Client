@@ -51,7 +51,7 @@ auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterF
 
 
 
-  var  auteurPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log, filterFilter ,title, close, auteurID) {
+  var  auteurPopCtrl= function ($scope, $element, rhService, $location, $timeout, $q, $log,$base64, filterFilter ,title, close, auteurID) {
       $scope.auteur = {};
    // $scope.typeauteurs=[{value:'PRINCIPAL'},{value:'COAUTEUR'}];
      $scope.typeauteurs=['PRINCIPAL','COAUTEUR'];
@@ -108,8 +108,12 @@ auteurCtrl.$inject = ['$scope', '$element', 'ModalService','rhService', 'filterF
      //   return (window.location.reload());
          };
 
-        
+           $scope.imageSrc = "";
+    
+    $scope.$on("fileProgress", function(e, progress) {
+      $scope.progress = progress.loaded / progress.total;
+    }); 
        //////////////////////////////////
         
     } 
-  auteurPopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log', 'filterFilter', 'title', 'close', 'auteurID'];
+  auteurPopCtrl.$inject = ['$scope','$element', 'rhService', '$location', '$timeout', '$q', '$log','$base64', 'filterFilter', 'title', 'close', 'auteurID'];

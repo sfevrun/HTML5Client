@@ -8,7 +8,7 @@ var loginCtrl =  function ($scope, $state, rhService) {
         });
         
         if ($scope.returnToState) $state.go($scope.returnToState.name, $scope.returnToStateParams);
-        else $state.go('categorie');
+        else $state.go('/');
       };
   } 
 loginCtrl.$inject = ['$scope', '$state', 'rhService'];
