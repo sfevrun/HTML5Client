@@ -40,7 +40,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
           ]
         }
       }).state('categorie', {
-             parent: 'site',
+            // parent: 'site',
               url: '/categorie',
                 data: {
                    roles: ['User']
@@ -53,7 +53,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
                   }
               }
               }).state('livreListe', {
-               parent: 'site',
+            //   parent: 'site',
               url: '/livreListe',
                data: {
                     roles: ['User']
@@ -66,7 +66,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
                   }
               }
               }).state('auteurs', {
-                    parent: 'site',
+             //       parent: 'site',
               url: '/auteurs',
                 data: {
                    roles: ['User']
@@ -80,10 +80,10 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
               }
               })
            .state('pret', {
-                 parent: 'site',
+           //      parent: 'site',
               url: '/pret',
               data: {
-          roles: ['Admin']
+          roles: []
         },
               views: {
                    'content@':  {
@@ -94,7 +94,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
               }
               })
    .state('users', {
-         parent: 'site',
+       //  parent: 'site',
               url: '/users',
                data: {
                    roles: ['User']
@@ -108,7 +108,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
               }
               })
    .state('personne', {
-         parent: 'site',
+        // parent: 'site',
               url: '/personne',
                data: {
                    roles: ['User']
@@ -134,7 +134,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
           }
         }
       }).state('accessdenied', {
-        parent: 'site',
+       // parent: 'site',
         url: '/denied',
         data: {
           roles: []
@@ -146,7 +146,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         }
       })
       .state('/', {
-        parent: 'site',
+    //  parent: 'site',
         url: '/',
         data: {
           roles: []

@@ -90,7 +90,14 @@ rhService.getAllUser().then(
                    $scope.users = results.data;
                    $scope.CRUDresult = "Data updated with success"
                });
+               
+               
+                 $scope._type={};
         $scope.close = function () {
+            
+              $scope._type.value= $scope.pret.livre.ecrit_par.type;
+            $scope.pret.livre.ecrit_par.type= $scope._type;
+            
             rhService.postPret($scope.pret).then(
                    function (results) {
                        // on success
